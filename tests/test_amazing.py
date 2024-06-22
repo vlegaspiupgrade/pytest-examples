@@ -24,7 +24,7 @@ def test_amazing_happy():
     """
     First basic, happy path test. It's not using any of the helper functions.
     For a function under test this simple, this may be enough.
-    (This is what I've seen a lot of - we could do better.)
+    (I see a lot of this. We could do better.)
     Ideally, we should:
     1. extract out code we'll be repeating (once we find ourselves creating more/similar tests/setup)
       * or re-use existing helper functions
@@ -39,10 +39,12 @@ def test_amazing_happy():
     result = amaze(name, data)
     print("result:", result)
 
-    expected_start = f"Hello {name}. See how amazing I am!"
-    expected_middle = "\nI'm going to add the first and second operands you provided."
-    expected_end = f"\n{first} + {second} = 5"
-    assert result == expected_start + expected_middle + expected_end
+    expected = (
+        f"Hello {name}. See how amazing I am!"
+        "\nI'm going to add the first and second operands you provided."
+        f"\n{first} + {second} = 5"
+    )
+    assert result == expected
 
 
 @pytest.mark.parametrize(
